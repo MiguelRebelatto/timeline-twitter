@@ -1,0 +1,15 @@
+<section class="d-flex">
+  <figure>
+    <img [src]="user.photo" [alt]="user.photo">
+  </figure>
+  <form class="form-group">
+    <input [formControl]="formTweet" class="form-control" id="tweet" placeholder="O que está acontecendo?"
+      maxlength="130">
+      <div class="container-button d-flex justify-content-end">
+        <span>{{countWords}}</span>
+        <button (click)="submit()" class="btn btn-primary">
+          Tweet
+        </button>
+      </div>
+  </form>
+</section>

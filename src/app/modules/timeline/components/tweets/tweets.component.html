@@ -1,0 +1,19 @@
+<section>
+  <article class="d-flex flex-row" *ngFor="let t of tweets">
+    <figure>
+      <img [src]="t.user.photo" [alt]="t.user.photo">
+    </figure>
+    <div class="container-post d-flex flex-column">
+      <div class="content-text">
+        <span class="user font-weight-bold">{{t.user.name}}</span>
+        <span class="username">{{t.user.username}}</span>
+        <span class="date">{{t.createdAt | date:'short'}}</span>
+      </div>
+      <p>{{t.text}}</p>
+    </div>
+    <button (click)="remove(t)" class="btn btn-danger">remove</button>
+  </article>
+  <div *ngIf="tweets.length === 0" class="no-data">
+    <span>No data</span>
+  </div>
+</section>

@@ -1,0 +1,19 @@
+section {
+  article {
+    figure {
+      width: 48px;
+      height: 48px;
+      margin-right: 5px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+
+    .container-post {
+      flex: 1;
+    }
+  }
+}
