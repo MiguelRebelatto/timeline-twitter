@@ -7,7 +7,7 @@
       maxlength="130">
       <div class="container-button d-flex justify-content-end">
         <span>{{countWords}}</span>
-        <button (click)="submit()" class="btn btn-primary">
+        <button (click)="submit()" class="btn btn-primary" [disabled]="disabledButton">
           Tweet
         </button>
       </div>

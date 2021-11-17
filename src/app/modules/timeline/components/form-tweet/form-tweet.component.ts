@@ -23,6 +23,10 @@ export class FormTweetComponent implements OnInit {
     private userService: UserService,
   ) { }
 
+  get disabledButton(): boolean {
+    return String(this.formTweet.value).length === 0
+  }
+
   ngOnInit(): void {
     this.observableForm()
   }
