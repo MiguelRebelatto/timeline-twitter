@@ -16,6 +16,7 @@ const MAX_LENGTH = 130;
 export class FormTweetComponent implements OnInit {
   user: User = this.userService.getUser();
   formTweet = new FormControl('');
+  formImage = new FormControl('');
   countWords: number = MAX_LENGTH;
 
   constructor(
@@ -37,6 +38,25 @@ export class FormTweetComponent implements OnInit {
     })
   }
 
+
+  onFileChange(event: any) {
+    let reader = new FileReader();
+
+    if (event.target.files && event.target.files.length) {
+      const [file] = event.target.files;
+      reader.readAsDataURL(file);
+
+      reader.onload = () => {
+        this.formImage.setValue(reader.result);
+      };
+    }
+  }
+
+  resetForm() {
+    this.formTweet.setValue('');
+    this.formImage.setValue('');
+  }
+
   submit() {
     if (String(this.formTweet.value).length === 0) {
       return
@@ -45,10 +65,11 @@ export class FormTweetComponent implements OnInit {
       createdAt: new Date(),
       id: uuidv4(),
       text: this.formTweet.value,
+      image: this.formImage.value,
       user: this.user
     })
     this.tweetService.addTweet(newTweet)
-    this.formTweet.setValue('');
+    this.resetForm()
   }
 
 }

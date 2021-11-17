@@ -10,6 +10,9 @@
         <span class="date">{{isShowSeconds(t) ? getTextSeconds(t) : (t.createdAt | date:'MMM d, y h:mm')}}</span>
       </div>
       <p>{{t.text}}</p>
+      <div *ngIf="t.image" class="container-image">
+        <img [src]="t.image" alt="image post">
+      </div>
     </div>
     <button (click)="remove(t)" color="primary" class="btn" title="Remove post">
       <img src="assets/remove.svg" alt="remove">

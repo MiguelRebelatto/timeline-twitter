@@ -4,6 +4,7 @@ export class Tweet {
   id: string
   user: User
   text: string
+  image?: string
   createdAt: Date
 
   constructor(partial?: Partial<Tweet>) {

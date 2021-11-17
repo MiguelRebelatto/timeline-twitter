@@ -5,14 +5,29 @@
   <form class="form-group">
     <input [formControl]="formTweet" class="form-control" id="tweet" placeholder="O que está acontecendo?"
       maxlength="130">
+
+    <div [class.d-none]="!formImage.value" class="container-image-form">
+      <div (click)="formImage.setValue('')" class="remove-image" title="remove image">
+        &times;
+      </div>
+      <img class="image-form" src="{{formImage.value}}" alt="foto">
+    </div>
+
     <div class="container-button d-flex justify-content-between">
       <span class="text-count" [ngClass]="{
           'text-warning': countWords > 10 && countWords <= 30,
           'text-danger': countWords <= 10
         }">{{countWords}}</span>
+      <div class="container-upload-file">
+        <div class="file btn btn-sm">
+          <img src="assets/image.svg" alt="upload image">
+          <input (change)="onFileChange($event)" type="file" name="file" accept="image/*" />
+        </div>
+      </div>
       <button (click)="submit()" class="btn btn-primary" [disabled]="disabledButton">
         Tweet
       </button>
     </div>
+
   </form>
 </section>
