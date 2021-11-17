@@ -2,4 +2,13 @@ section {
   border-left: 1px solid var(--border-color);
   border-right: 1px solid var(--border-color);
   margin-bottom: 50px;
+
+  header {
+    padding: 15px 15px 0 15px;
+    border-bottom: 1px solid var(--border-color);
+
+    h1 {
+      font-size: 25px;
+    }
+  }
 }
