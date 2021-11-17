@@ -1,17 +1,19 @@
 <section>
-  <article class="d-flex flex-row" *ngFor="let t of tweets">
+  <article class="d-flex flex-row" *ngFor="let t of list">
     <figure>
       <img [src]="t.user.photo" [alt]="t.user.photo">
     </figure>
     <div class="container-post d-flex flex-column">
       <div class="content-text">
-        <span class="user font-weight-bold">{{t.user.name}}</span>
-        <span class="username">{{t.user.username}}</span>
-        <span class="date">{{t.createdAt | date:'short'}}</span>
+        <span class="user">{{t.user.name}}</span>
+        <span class="username">@{{t.user.username}}</span>
+        <span class="date">{{isShowSeconds(t) ? getTextSeconds(t) : (t.createdAt | date:'MMM d, y h:mm')}}</span>
       </div>
       <p>{{t.text}}</p>
     </div>
-    <button (click)="remove(t)" class="btn btn-danger">remove</button>
+    <button (click)="remove(t)" color="primary" class="btn" title="Remove post">
+      <img src="assets/remove.svg" alt="remove">
+    </button>
   </article>
   <div *ngIf="tweets.length === 0" class="no-data">
     <span>No data</span>
