@@ -1,3 +1,12 @@
-<p>modal-confirmation works!</p>
-<button (click)="close(true)" class="btn btn-danger">sim</button>
-<button (click)="close(false)" class="btn">não</button>
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Deseja realmente remover este post?</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-footer">
+      <button (click)="close(true)" class="btn btn-danger">sim</button>
+      <button (click)="close(false)" class="btn">não</button>
+    </div>
+  </div>
+</div>
