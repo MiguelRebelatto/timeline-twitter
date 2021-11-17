@@ -5,11 +5,14 @@
   <form class="form-group">
     <input [formControl]="formTweet" class="form-control" id="tweet" placeholder="O que está acontecendo?"
       maxlength="130">
-      <div class="container-button d-flex justify-content-between">
-        <span>{{countWords}}</span>
-        <button (click)="submit()" class="btn btn-primary" [disabled]="disabledButton">
-          Tweet
-        </button>
-      </div>
+    <div class="container-button d-flex justify-content-between">
+      <span class="text-count" [ngClass]="{
+          'text-warning': countWords > 10 && countWords <= 30,
+          'text-danger': countWords <= 10
+        }">{{countWords}}</span>
+      <button (click)="submit()" class="btn btn-primary" [disabled]="disabledButton">
+        Tweet
+      </button>
+    </div>
   </form>
 </section>

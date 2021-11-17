@@ -33,6 +33,20 @@ section {
 
     .container-button {
       padding-top: 5px;
+
+      .text-count {
+        font-size: 12px;
+        color: var(--second-color);
+      }
+
+      .text-warning {
+        color: var(--bs-warning);
+      }
+
+      .text-danger {
+        color: var(--bs-danger);
+      }
+
       button {
         border-radius: 20px;
         font-weight: bold;
