@@ -26,10 +26,6 @@ export class TweetsComponent implements OnInit, OnDestroy {
     private modalService: NgbModal
   ) { }
 
-  get list() {
-    return this.tweets.sort((a, b) => a.createdAt < b.createdAt ? 1 : -1);
-  }
-
   isShowSeconds(item: Tweet): boolean {
     let diff = getDifferenceDatetimeInSeconds(this.now, new Date(item.createdAt))
     return diff <= ONE_MINUTE;
@@ -46,7 +42,7 @@ export class TweetsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.tweets = [...this.tweetService.getTweets()];
+    this.tweets = [...this.tweetService.getTweets().sort((a, b) => a.createdAt < b.createdAt ? 1 : -1)];
     this.observableListEvent();
     this.initInterval();
   }
@@ -60,7 +56,7 @@ export class TweetsComponent implements OnInit, OnDestroy {
   observableListEvent() {
     this.subscription = this.tweetService.onChange.subscribe(data => {
       if (data.event == TweetEventEnum.ADDED)
-        this.tweets.push(data.tweet)
+        this.tweets.unshift(data.tweet)
       else
         this.tweets.splice(this.tweets.findIndex(i => i.id === data.tweet.id), 1)
     })
