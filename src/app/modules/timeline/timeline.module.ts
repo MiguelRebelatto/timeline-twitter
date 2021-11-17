@@ -6,7 +6,6 @@ import { TimelineRoutingModule } from './timeline-routing.module';
 import { TweetsComponent } from './components/tweets/tweets.component';
 import { FormTweetComponent } from './components/form-tweet/form-tweet.component';
 import { HomeComponent } from './pages/home/home.component';
-import { ModalConfirmationComponent } from './components/modal-confirmation/modal-confirmation.component';
 
 
 @NgModule({
@@ -14,7 +13,6 @@ import { ModalConfirmationComponent } from './components/modal-confirmation/moda
     TweetsComponent,
     FormTweetComponent,
     HomeComponent,
-    ModalConfirmationComponent
   ],
   imports: [
     CommonModule,

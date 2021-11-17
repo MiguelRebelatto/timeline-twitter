@@ -1,11 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subscription } from 'rxjs';
+import { ModalConfirmationComponent } from 'src/app/modules/shared/components/modal-confirmation/modal-confirmation.component';
 import { TweetEventEnum } from 'src/app/modules/shared/enums/eventList.enum';
 import { Tweet } from 'src/app/modules/shared/models/tweet.model';
 import { TweetService } from 'src/app/modules/shared/services/tweet.service';
 import { getDifferenceDatetimeInSeconds } from 'src/app/modules/shared/util/date.util';
-import { ModalConfirmationComponent } from '../modal-confirmation/modal-confirmation.component';
 
 const ONE_MINUTE = 60;
 const FIFTEEN_SECONDS = 30000;
@@ -64,6 +64,7 @@ export class TweetsComponent implements OnInit, OnDestroy {
 
   remove(item: Tweet) {
     const modal = this.modalService.open(ModalConfirmationComponent);
+    modal.componentInstance.text = "Deseja realmente remover este post?"
     modal.result.then(result => {
       if (result === true) this.tweetService.removeTweet(item)
     }).catch(err => console.error(err));
