@@ -9,4 +9,12 @@ nav {
   .navbar-brand {
     font-weight: bold;
   }
+  .nav-user {
+    font-style: italic;
+  }
+
+  .navbar-brand,
+  .nav-user {
+    color: var(--second-color);
+  }
 }
