@@ -4,8 +4,9 @@ export class Tweet {
   id: string
   user: User
   text: string
-  image?: string
   createdAt: Date
+  image?: string
+  animate?: string
 
   constructor(partial?: Partial<Tweet>) {
     if (partial) {
