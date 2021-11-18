@@ -1,6 +1,6 @@
 section {
   article {
-    padding: 10px 20px;
+    padding: 15px 20px;
     border-bottom: 1px solid var(--border-color);
 
     figure {
@@ -82,6 +82,11 @@ section {
 
   article:first-of-type {
     border-top: 1px solid var(--border-color);
+  }
+
+  article:last-of-type {
+    padding-bottom: 30px;
+    border-bottom: 0;
   }
 }
 
