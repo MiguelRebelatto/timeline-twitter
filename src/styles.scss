@@ -1,7 +1,10 @@
+* {
+  font-family: Helvetica, Arial, sans-serif;
+}
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
-  background: #F1F4F9;
+  background: #f1f4f9;
 }
 
 ::-webkit-scrollbar-track {
@@ -28,4 +31,3 @@
 .container.container-home {
   padding: 0;
 }
-
